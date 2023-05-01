@@ -2,7 +2,7 @@
 This repos is a small sample of code written by Curt Dixon.
 
 FileHasher is a stand-alone, lightweight class that maintains a cache of file hashes. It is dessigned to be called from multiple threads. It does not create its own threads,
-but runs in the context of the calling thread. The typical use case is a thread is created by a kernel event monitor (mini-filter) when a when a binary file is
+but runs in the context of the calling thread. The typical use case is a thread is created by a kernel event monitor (mini-filter) when a binary file is
 being opened, and the hash needs to be checked before allowing the binary to load. This means the hashing work is distributed across multiple threads (cores)
 instead of being serialized into only one.
 
