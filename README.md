@@ -1,10 +1,9 @@
 # CurtDixonCodeSamples
 This repos is a small sample of code written by Curt Dixon.
 
-FileHasher is a stand-alone, lightweight class that maintains a cache of file hashes. It is designed to be called from multiple threads. It does not create its own threads,
-but runs in the context of the calling thread. The typical use case is a thread is created by a kernel event monitor (mini-filter) when a binary file is
-being opened, and the hash needs to be checked before allowing the binary to load. This means the hashing work is distributed across multiple threads (cores)
-instead of being serialized into only one.
+FileHasher is a stand-alone, lightweight class that maintains a cache of file hashes. It is designed to be called from multiple threads. It does not create its own threads, but runs in the context of the calling thread. This means the hashing work is distributed across multiple threads (cores) instead of being serialized into only one.
+
+The typical use case is a thread is created by a kernel event monitor (mini-filter) when a binary file is being opened, and the hash needs to be checked before allowing the binary to load. 
 
 FileHasher demonstrates std::map, std::mutex with reader/writer locks, (i.e. lock_shared), as well as the Windows crypto API (CryptCreateHash, etc.). It has a test main() and can be built and run in VS 2022.
 
