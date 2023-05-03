@@ -182,18 +182,18 @@ bool MultithreadingDemo::RunTest()
 
     // Start a group of consumer & producer threads
 
-    std::vector<std::thread *> consumers;
-    std::vector<std::thread *> producers;
+    std::vector<std::thread> consumers;
+    std::vector<std::thread> producers;
 
     for (int i = 1; i <= NUM_THREADS; ++i)
     {
-        consumers.emplace_back(new std::thread(&MultithreadingDemo::ConsumerThread, this, i));
-        producers.emplace_back(new std::thread(&MultithreadingDemo::ProducerThread, this, i));
+        consumers.emplace_back(std::thread(&MultithreadingDemo::ConsumerThread, this, i));
+        producers.emplace_back(std::thread(&MultithreadingDemo::ProducerThread, this, i));
     }
 
     // wait for all producer threads to complete
     for (auto& t : producers)
-        t->join();
+        t.join();
 
 
     // signal all consumer threads to stop
@@ -204,7 +204,7 @@ bool MultithreadingDemo::RunTest()
 
     // wait for consumers to stop
     for (auto& t : consumers)
-        t->join();
+        t.join();
 
     // Validate that we got the correct result
     int total = 0;
