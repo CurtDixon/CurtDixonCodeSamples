@@ -9,7 +9,7 @@ FileHasher demonstrates std::map, std::mutex with reader/writer locks, (i.e. loc
 
 ------------
 
-InvProcHandler is a Proof Of Concept (POC) of a driver the intercepts processes starting, and redirects them to the Invincea service application. It requires the Invincea agent service, so this demo will not run currently.
+InvProcHandler is a Proof Of Concept (POC) of a C++ driver that intercepts processes starting, and redirects them to the Invincea service application. It requires the Invincea agent service, so this demo will not run currently.
 
 InvProcHandler demonstrates use of PsSetCreateProcessNotifyRoutine, ZwQueryInformationProcess, KeStackAttachProcess, PsLookupProcessByProcessId, and kernel<->user mode communication using IRPs (IoCompleteRequest).
 
