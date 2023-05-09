@@ -1,4 +1,4 @@
-# CurtDixonCodeSamples
+# Curt Dixon Code Samples
 This repo is a small sample of code written by Curt Dixon.
 
 FileHasher is a stand-alone, lightweight class that maintains a cache of file hashes. It is designed to be called from multiple threads. It does not create its own threads, but runs in the context of the calling thread. This means the hashing work is distributed across multiple threads (cores) instead of being serialized into only one. Reader/writer locks are used for increased performance.
