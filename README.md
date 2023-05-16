@@ -1,6 +1,8 @@
 # Curt Dixon Code Samples
 This repo is a small sample of code written by Curt Dixon.
 
+-------------
+
 FileHasher is a stand-alone, lightweight class that maintains a cache of file hashes. It is designed to be called from multiple threads. It does not create its own threads, but runs in the context of the calling thread. This means the hashing work is distributed across multiple threads (cores) instead of being serialized into only one. Reader/writer locks are used for increased performance.
 
 The typical use case is a thread is created by a kernel event monitor (minifilter) when a binary file is being opened, and the hash needs to be checked before allowing the binary to load. The verification of the hash, and eventual clearing of the cache are handled by the caller.
@@ -9,7 +11,7 @@ FileHasher demonstrates std::map, std::mutex with reader/writer locks, (i.e. loc
 
 ------------
 
-InvProcHandler is a Proof Of Concept (POC) C++ driver I wrote in 2013. If a process with the Internet Zone tag is started, the driver terminates it and restarts it in the Invincea sandbox. It requires the Invincea agent service, so this demo will not run currently.
+InvProcHandler is a Proof Of Concept (POC) C++ driver I wrote in 2013. The driver registers for process start callbacks. If a process with the Internet Zone tag is started, the driver terminates it and restarts it in the Invincea sandbox. It requires the Invincea agent service, so this demo will not run currently.
 
 The POC goals were to
   1) Experiment with writing a driver in C++ as opposed to C.
